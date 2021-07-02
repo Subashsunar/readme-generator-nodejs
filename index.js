@@ -1,56 +1,54 @@
 // TODO: Include packages needed for this application
+const generateMarkdown = require('./utils/generateMarkdown');
+
+// https://github.com/Subashsunar/readme-generator-nodejs
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 inquirer.prompt([
   {
     type: 'input',
-    name: 'name',
-    message: 'Please enter your name',
+    name: 'title',
+    message: 'What is the title of your repository?'
   },
   {
-    type: 'checkbox',
-    name: 'languages',
-    message: 'What languages do you know?',
-    choices: [
-      'Filipino',
-      'Spanish',
-      'Mandarin',
-      'English',
-      'Japanese',
-      'Arabic',
-      'French',
-      'ASL',
-      'Portuguese',
-    ],
+    type: 'input',
+    name: 'description',
+    message: 'What is the description of your repository?'
+  },
+  {
+    type: 'input',
+    name: 'installation',
+    message: 'Installation process',
+    default: 'npm i'
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'User needed to know about the repository'
   },
   {
     type: 'list',
-    name: 'communication',
-    message: 'What is your preferred method of communication?',
+    name: 'liscense',
+    message: 'What is the License?',
     choices: [
-      'email',
-      'text',
-      'telekinesis',
-      'call',
-      'morse code',
-      'carrier pigeon',
-      'smoke signals'
-    ]
+      'MIT', 'GPL', 'APACHE', 'NONE',
+    ], 
+  },
+  {
+    type: 'input',
+    name: 'contributing',
+    message: 'How to user contribute',
+  },
+  {
+    type: 'input',
+    name: 'tests',
+    message: 'How user can test',
+    default: 'npm test',
   }
 ]).then(answers => {
-  fs.writeFile(`${answers.name.toLowerCase()}.json`, JSON.stringify(answers, null, 2), function(err) {
+  fs.writeFile(`./README1.md`,generateMarkdown(answers), function(err) {
     if (err) throw err;
     console.log('Successfully created the file');
   });
 });
-// TODO: Create an array of questions for user input
-const questions = [];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
