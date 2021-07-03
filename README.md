@@ -31,7 +31,7 @@ node index.js
 ```md
 4) Once you answered all the questions and press enter you will have auto generated README.md file on your folder.
 ```
+ 
+## Demo of the application
 
-
-
-
+![README file generator demo](./video/README-file-generate-video.gif)
