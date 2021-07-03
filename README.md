@@ -34,4 +34,4 @@ node index.js
  
 ## Demo of the application
 
-![README file generator demo](./video/README-file-generate-video.gif)
+![README file generator demo](./video/Readme-File-Generator.gif)
